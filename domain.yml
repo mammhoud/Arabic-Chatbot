@@ -1,0 +1,98 @@
+version: "3.0"
+
+synonymns:
+  - credit
+
+entities:
+  - card_number
+
+intents:
+  - enter_card_number
+  - banking_activate_card
+  - banking_fee_inquiry
+  - exchange_rate
+  - product_keywords
+  # - connect_live_agent
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+
+responses:
+  utter_banking_activate_card:
+  - text: "ادخل رقم الكارت."
+
+  utter_banking_card_activated:
+  - text: "تم التفعيل"
+
+  utter_banking_fee_inquiry:
+  - text: "المصروفات المتاحة:"
+  
+  utter_greet:
+  - text: "مرحبا كيف حالك؟"
+
+  utter_cheer_up:
+  - text: "مرحبا بك في فودو"
+    image: "https://support.fodoapps.net/SiteStyle/images/logo/logo.png"
+
+  utter_did_that_help:
+  - text: "تم ممكن تراجع الان"
+  
+  utter_response_product_description:
+  - text: "ما هى الخدمة التى تريد الاستعلام عنها؟"
+    buttons:
+    - title: "برامج البيعات"
+      payload: "POS"
+    - title: "برامج الحسابات"
+      payload: "360_red"
+
+  utter_deny_generation_proceed:
+    - text: "ايا كان ما تريدمن شراكتنا يمكنك ارسال رسالة و سيتم مراجعتها من المختص اكتب وصف لما تريد منا و سيتم المتابعة فى اقرب وقت!"
+
+  utter_change_mood_happy:
+  - text: "عذرا انا برنامج غاص بالمؤسسة لمساعدتك ايا كان ما تريدمن شراكتنا يمكنك ارسال رسالة و سيتم مراجعتها من المختص اكتب!"
+    buttons:
+    - title: "برامج البيعات"
+      payload: "POS"
+    - title: "برامج الحسابات"
+      payload: "360_red"
+
+  utter_ask_keywords:
+  - text: "Great!! Just give me more than 3 keywords that describe your product separated with commas like: jeans, blue, trendy, cotton"
+
+  utter_inform_generation:
+  - text: "الان يمكنك التواصل معنا على رقمنا. لابلاغك بحالة اششتراكك او فيما سبق من استفسارك"
+
+  utter_finish_process:
+    - text: "اتمنى ان يكون اعجبك و سعداكبكم فى مؤسستنا"
+  utter_happy:
+  - text: "عظيم. تفضل"
+
+  utter_goodbye:
+  - text: "سلام"
+
+  utter_iamabot:
+  - text: "انا مساعد اسطناعى. كيف يمكننى مساعدتك. اترك رسالتك و سيتم مراجعته."
+
+actions:
+- action_banking_card_activated
+- action_exchange_rate
+############################### 
+- utter_greet
+- utter_goodbye
+- utter_iamabot
+- utter_response_product_description
+- utter_ask_keywords
+- utter_inform_generation
+- action_product_description
+- utter_finish_process
+- utter_deny_generation_proceed
+- utter_change_mood_happy
+
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
