@@ -49,7 +49,7 @@ responses:
     - title: "برامج الحسابات"
       payload: "360_red"
 
-  utter_deny_generation_proceed:
+  utter_re_ask_help:
     - text: "ايا كان ما تريدمن شراكتنا يمكنك ارسال رسالة و سيتم مراجعتها من المختص اكتب وصف لما تريد منا و سيتم المتابعة فى اقرب وقت!"
 
   utter_change_mood_happy:
@@ -60,19 +60,16 @@ responses:
     - title: "برامج الحسابات"
       payload: "360_red"
 
-  utter_ask_keywords:
-  - text: "Great!! Just give me more than 3 keywords that describe your product separated with commas like: jeans, blue, trendy, cotton"
-
   utter_inform_generation:
-  - text: "الان يمكنك التواصل معنا على رقمنا. لابلاغك بحالة اششتراكك او فيما سبق من استفسارك"
+  - text: "الان يمكنك التواصل معنا على رقمنا(١٢٣٤٥٦٧٨). لابلاغك بحالة اششتراكك او فيما سبق من استفسارك"
 
   utter_finish_process:
-    - text: "اتمنى ان يكون اعجبك و سعداكبكم فى مؤسستنا"
+  - text: "سعداء بكم"
   utter_happy:
   - text: "عظيم. تفضل"
 
   utter_goodbye:
-  - text: "سلام"
+  - text: "نتمنى لكم النجاح و التميز"
 
   utter_iamabot:
   - text: "انا مساعد اسطناعى. كيف يمكننى مساعدتك. اترك رسالتك و سيتم مراجعته."
@@ -85,11 +82,10 @@ actions:
 - utter_goodbye
 - utter_iamabot
 - utter_response_product_description
-- utter_ask_keywords
 - utter_inform_generation
 - action_product_description
 - utter_finish_process
-- utter_deny_generation_proceed
+- utter_re_ask_help
 - utter_change_mood_happy
 
 

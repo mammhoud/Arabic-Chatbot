@@ -19,7 +19,7 @@ applicationSettings:
   initialModel: ./models/20220906-135400-cerulean-lien.tar.gz"
 
   # -- Train a model if an initial model is not defined. This parameter is ignored if the `applicationSettings.initialModel` is defined
-  trainInitialModel: false
+  trainInitialModel: true
 
   # -- Port on which Rasa runs
   port: 5005

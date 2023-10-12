@@ -10,25 +10,10 @@ stories:
   - intent: mood_unhappy
   - action: utter_change_mood_happy
   - intent: affirm
-  - action: utter_ask_keywords
-  - intent: product_keywords
   - action: utter_inform_generation
   - action: action_product_description
   - action: utter_finish_process
 
-
-# - story: happy path for generating product description
-  # steps:
-  # - intent: greet
-  # - action: utter_greet
-  # - intent: mood_great
-  # - action: action_send_message_to_telegram_user
-  # - intent: affirm
-  # - action: utter_ask_keywords
-  # - intent: product_keywords
-  # - action: utter_inform_generation
-  # - action: action_product_description
-  # - action: utter_finish_process
 
 - story: happy path
   steps:
