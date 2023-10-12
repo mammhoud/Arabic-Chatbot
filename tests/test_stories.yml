@@ -5,42 +5,46 @@ stories:
 - story: happy path 1
   steps:
   - user: |
-      hello there!
+      مرحبا!
     intent: greet
   - action: utter_greet
   - user: |
-      amazing
+      اريد مساعدة
     intent: mood_great
-  - action: utter_happy
+  - action: utter_re_ask_help
+  - user: |
+        حسنا
+    intent: utter_finish_process
+  - action: connect_live_agent
 
 - story: happy path 2
   steps:
   - user: |
-      hello there!
+      السلام عليكم
     intent: greet
   - action: utter_greet
   - user: |
-      amazing
+      ممكن تواصل
     intent: mood_great
   - action: utter_happy
   - user: |
-      bye-bye!
+      تمام شكرا
     intent: goodbye
   - action: utter_goodbye
 
 - story: sad path 1
   steps:
   - user: |
-      hello
+      مرحبا
     intent: greet
   - action: utter_greet
   - user: |
-      not good
+      لا اريد تفعيل الخدمة
     intent: mood_unhappy
   - action: utter_cheer_up
   - action: utter_did_that_help
   - user: |
-      yes
+      شكرا
     intent: affirm
   - action: utter_happy
 
@@ -63,29 +67,31 @@ stories:
 - story: sad path 3
   steps:
   - user: |
-      hi
+      اهلا
     intent: greet
   - action: utter_greet
   - user: |
-      very terrible
+      عندى مشكلة
     intent: mood_unhappy
   - action: utter_cheer_up
   - action: utter_did_that_help
   - user: |
-      no
+      سوف افعل ذلك
     intent: deny
-  - action: utter_goodbye
+  - action: utter_inform_generation
 
 - story: say goodbye
   steps:
   - user: |
-      bye-bye!
+      شكرا للمساعدة
     intent: goodbye
   - action: utter_goodbye
 
 - story: bot challenge
   steps:
   - user: |
-      are you a bot?
+      اريد انسان للتواص
+      من انت
+      هل انتا بوت
     intent: bot_challenge
   - action: utter_iamabot
