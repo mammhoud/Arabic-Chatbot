@@ -1,8 +1,13 @@
 # Arabic-Chatbot
+
+
+rasa docs --> go to rasa.com
+
 Rasa-Bot Handeled Arabic language and using api, for other languages
 the api key examples defiend
 
 to run project download fast text cc.ar model for into vecs folder in dosen`t created, then create new with name vecs and add the model and vectors
+as defiend in config.yml
 then 
 
 install python 3.8 and rasa_nlu_examples
