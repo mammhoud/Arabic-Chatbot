@@ -1,6 +1,6 @@
 # Arabic-Chatbot
 
-to run project download (fast-text)[https://dl.fbaipublicfiles.com/fasttext/vectors-crawl/cc.ar.300.bin.gz] cc.ar model for into vecs folder in dosen`t created, then create new with name vecs and add the model and vectors
+to run project download [fast-text](https://dl.fbaipublicfiles.com/fasttext/vectors-crawl/cc.ar.300.bin.gz) cc.ar model for into vecs folder in dosen`t created, then create new with name vecs and add the model and vectors
 as defiend in config.yml
 then 
 
