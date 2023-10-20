@@ -22,4 +22,4 @@ to configure the model to answer as a bot on telegram bot channel created channe
 with webhooks examples go to [ngrok]() webhook -- domain then create new run it into your machine
 note that rasa working with local port 5005
 
-for work with telegram [API](https://medium.com/devops-dev/free-hosting-for-your-telegram-bot-its-easier-than-you-think-66a5e5c000bb)
+rasa project works with telegram, to know more about its [API](https://medium.com/devops-dev/free-hosting-for-your-telegram-bot-its-easier-than-you-think-66a5e5c000bb)
