@@ -26,7 +26,7 @@ to think with api:
 rasa run actions
 ### working with chat platforms 
 to configure the model to answer as a bot on telegram bot channel created channel then put bot name and auth token into cradentials.yml
-with webhooks examples go to [ngrok]() webhook -- domain then create new run it into your machine
+with webhooks examples go to [ngrok](https://ngrok.com/) webhook -- domain then create new run it into your machine
 note that rasa working with local port 5005
 
 rasa project works with telegram, to know more about its [API](https://medium.com/devops-dev/free-hosting-for-your-telegram-bot-its-easier-than-you-think-66a5e5c000bb)
