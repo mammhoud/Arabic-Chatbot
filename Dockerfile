@@ -1,4 +1,4 @@
-FROM rasa/rasa:3.1.0
+FROM rasa/rasa:3
 USER root
 RUN apt-get update -qq \
     && apt-get install -y --no-install-recommends build-essential git-core \
