@@ -1,8 +1,8 @@
-google-auth==1.35.0
-google-auth-oauthlib==0.4.6
-google-pasta==0.2.0
-rasa-nlu-examples @ git+https://github.com/RasaHQ/rasa-nlu-examples.git@fe12dbc814d992382c1ca1d926b340139200928f
-spacy==3.2.6
-spacy-legacy==3.0.12
-spacy-loggers==1.0.5
-SQLAlchemy==1.4.49
+rasa[spacy]
+rasa_nlu_examples @ git+https://github.com/RasaHQ/rasa-nlu-examples.git
+rasa_nlu_examples[all] @ git+https://github.com/RasaHQ/rasa-nlu-examples.git
+rasa_nlu_examples[fasttext] @ git+https://github.com/RasaHQ/rasa-nlu-examples.git
+rasa_nlu_examples[flashtext] @ git+https://github.com/RasaHQ/rasa-nlu-examples.git
+rasa_nlu_examples[dateparser] @ git+https://github.com/RasaHQ/rasa-nlu-examples.git
+rasa_nlu_examples[thai] @ git+https://github.com/RasaHQ/rasa-nlu-examples.git
+websockets==10.0
