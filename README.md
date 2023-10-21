@@ -8,7 +8,8 @@ note that you could change fast-text model with models into fast-text or another
 - name: rasa_nlu_examples.featurizers.dense.FastTextFeaturizer
      cache_path: vecs/cc.ar.300.bin
 
-  for model customization and model path 
+  for model customization and model path configurations
+     [example](https://rasa.com/blog/enhancing-rasa-nlu-with-custom-components/)
 as defiend in config.yml
 ### install python env
 install python 3.8 and [rasa_nlu_examples](https://github.com/RasaHQ/rasa-nlu-examples)
