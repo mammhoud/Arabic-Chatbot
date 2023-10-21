@@ -1,8 +1,5 @@
 fasttext-wheel
 rasa[spacy]
-rasa_nlu_examples @ git+https://github.com/RasaHQ/rasa-nlu-examples.git
-rasa_nlu_examples[all] @ git+https://github.com/RasaHQ/rasa-nlu-examples.git
 rasa_nlu_examples[fasttext] @ git+https://github.com/RasaHQ/rasa-nlu-examples.git
-rasa_nlu_examples[dateparser] @ git+https://github.com/RasaHQ/rasa-nlu-examples.git
 websockets==10.0
 detectlanguage
