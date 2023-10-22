@@ -12,7 +12,7 @@ note that you could change fast-text model with models into fast-text or another
 
      [example](https://rasa.com/blog/enhancing-rasa-nlu-with-custom-components/)
 ### install python env
-install Version of python <3.8, python >3.6 and [rasa_nlu_examples](https://github.com/RasaHQ/rasa-nlu-examples)
+python venv with version <3.8, python >3.6 and [rasa_nlu_examples](https://github.com/RasaHQ/rasa-nlu-examples)
 find fast-text module for rasa
 
 ### start train and run
