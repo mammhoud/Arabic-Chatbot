@@ -1,6 +1,6 @@
 ## Arabic-Chatbot
 
-### make it ready
+### make Project ready
 to run project download fast-text Arabic models: [Arabic](https://dl.fbaipublicfiles.com/fasttext/vectors-crawl/cc.ar.300.bin.gz)), [Arabic Egypt](https://dl.fbaipublicfiles.com/fasttext/vectors-crawl/cc.arz.300.bin.gz) into vecs folder with exract the archive of downloaded gz file
 create vecs folder in dosen`t created
 note that you could change fast-text model with models into fast-text or another that defined in reading list, so check config.yml 
@@ -12,7 +12,7 @@ note that you could change fast-text model with models into fast-text or another
 
      [example](https://rasa.com/blog/enhancing-rasa-nlu-with-custom-components/)
 ### install python env
-install python 3.8 and [rasa_nlu_examples](https://github.com/RasaHQ/rasa-nlu-examples)
+install Version of python <3.8, python >3.6 and [rasa_nlu_examples](https://github.com/RasaHQ/rasa-nlu-examples)
 find fast-text module for rasa
 
 ### start train and run
