@@ -1,4 +1,5 @@
 pycocotools 
 rasa[spacy]
-websockets
+websockets==10
 detectlanguage
+
