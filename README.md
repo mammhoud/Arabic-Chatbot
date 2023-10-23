@@ -36,14 +36,14 @@ if you working with external models you should make installations og packages wi
 
 To get started locally you can run:
 
-```python -m pip install -e ".[dev]"
+```
+python -m pip install -e ".[dev]"
 pre-commit install
-python tests/scripts/prepare_fasttext.py```
-
-
-Alternatively you may also run this via the Makefile:
-
-```make install
+python tests/scripts/prepare_fasttext.py
+```
+- Alternatively you may also run this via the Makefile:
+```
+make install
 ```
 
 
