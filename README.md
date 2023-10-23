@@ -50,14 +50,9 @@ rasa project works with telegram, to know more about its [API](https://medium.co
 #### [ValidationAction function not being read](https://forum.rasa.com/t/validationaction-function-not-being-read/56000)
 #### [Custom paths](https://forum.rasa.com/t/custom-paths/56496)
 #### [rasa blog](https://rasa.com/blog/)
-#### []()
-#### []()
-#### []()
-#### []()
-#### []()
-#### []()
-#### []()
-#### []()
+
+### Examples
+#### [customer-care-chatbot](https://github.com/Horizon733/customer-care-chatbot)
 
 ## 🧪 Testing
 - Train bot
@@ -76,8 +71,6 @@ rasa run --enable-api --cors "*" --debug[Optional] -p {PORT}[optional]
 ```
 rasa run actions -p {PORT}[Optional]
 ```
-
-
 ## 🛠 Features {Changable}
 - [x] Basic E-commerce FAQ
 - [x] Basic chitchats
@@ -85,7 +78,13 @@ rasa run actions -p {PORT}[Optional]
 - [x] Contact us form
 - [x] Send Emails
 
-- [ ] 
 ### Tutorial links:
 - [Build customer care chatbot from scratch](https://youtu.be/u6xOgR3jEMU)
 - [Send email from Rasa chatbot](https://youtu.be/UcbNmZA65pw)
+#### []()
+#### []()
+#### []()
+#### []()
+#### []()
+#### []()
+#### []()
