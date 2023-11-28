@@ -93,10 +93,10 @@ rasa run actions -p {PORT}[Optional]
 ![image](https://github.com/mammhoud/Arabic-Chatbot/assets/98676093/8054590b-cad1-4db0-a93b-1b4078fcdfdd)
 
 ## 🛠 Features {Changable}
-- [x] Basic E-commerce FAQ
+- [ ] Basic E-commerce FAQ
 - [x] Basic chitchats
-- [x] Out of Scope
-- [x] Contact us form
+- [ ] Out of Scope
+- [ ] Contact us form
 - [x] Send Emails
 
 ### Tutorial links:
