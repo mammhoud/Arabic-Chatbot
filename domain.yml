@@ -12,7 +12,7 @@ intents:
   - banking_fee_inquiry
   - exchange_rate
   - product_keywords
-  # - connect_live_agent
+  - connect_live_agent
   - greet
   - goodbye
   - affirm
@@ -20,7 +20,13 @@ intents:
   - mood_great
   - mood_unhappy
   - bot_challenge
+forms:
+  - submit_review_form
 
+slots:
+ user_reviews:
+    type: list
+    influence_conversation: false
 responses:
   utter_banking_activate_card:
   - text: "ادخل رقم الكارت."
@@ -35,30 +41,32 @@ responses:
   - text: "مرحبا كيف حالك؟"
 
   utter_cheer_up:
-  - text: "مرحبا بك في فودو"
-    image: "https://support.fodoapps.net/SiteStyle/images/logo/logo.png"
+  - text: "مرحبا بك"
+    image: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZnpsd3pidzlmdWdscGI2anh3bWo5bDFlbmJmMXBibDJyZ2p6MTVjdyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/iDOOSqoC0k3VeT9rd5/giphy.gif"
 
   utter_did_that_help:
-  - text: "تم ممكن تراجع الان"
+  - text: "هل يمكننى مساعدتك فى شئ اخر ؟"
   
   utter_response_product_description:
-  - text: "ما هى الخدمة التى تريد الاستعلام عنها؟"
+  - text: "ما هى الخدمة التى تريد الاستعلام عنها ؟"
     buttons:
-    - title: "برامج البيعات"
-      payload: "POS"
-    - title: "برامج الحسابات"
-      payload: "360_red"
+    - title: "برامج خاصة"
+      payload: "Applications"
+    - title: "تسويق"
+      payload: "Marketing"
 
   utter_re_ask_help:
-    - text: "ايا كان ما تريدمن شراكتنا يمكنك ارسال رسالة و سيتم مراجعتها من المختص اكتب وصف لما تريد منا و سيتم المتابعة فى اقرب وقت!"
+    - text: "حينما تريد مشراكتنا يمكنك ارسال رسالة و سيتم مراجعتها و! الرد من خلالنا او من خلال نظام الرد الالى"
 
   utter_change_mood_happy:
-  - text: "عذرا انا برنامج غاص بالمؤسسة لمساعدتك ايا كان ما تريدمن شراكتنا يمكنك ارسال رسالة و سيتم مراجعتها من المختص اكتب!"
+  - text: "عذرا انا برنامج خاص لمساعدتك يمكنك ترك رسالتك و سيتم الرد عليك!"
+    - text: "نبذة عن الخدمات التى يمكننا تقديمها"
+
     buttons:
-    - title: "برامج البيعات"
-      payload: "POS"
-    - title: "برامج الحسابات"
-      payload: "360_red"
+    - title: "برامج خاصة"
+      payload: "Applications"
+    - title: "تسويق"
+      payload: "Marketing"
 
   utter_inform_generation:
   - text: "الان يمكنك التواصل معنا على رقمنا(١٢٣٤٥٦٧٨). لابلاغك بحالة اششتراكك او فيما سبق من استفسارك"
@@ -76,8 +84,8 @@ responses:
 
 actions:
 - action_banking_card_activated
-- action_exchange_rate
-############################### 
+# - action_exchange_rate
+- submit_review_form 
 - utter_greet
 - utter_goodbye
 - utter_iamabot

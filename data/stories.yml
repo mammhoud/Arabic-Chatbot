@@ -1,9 +1,7 @@
 version: "3.0"
 
 stories:
-
-
-- story: mood unhappy for generating product description
+- story: mood unhappy for generating Services description
   steps:
   - intent: greet
   - action: utter_greet
@@ -13,6 +11,8 @@ stories:
   - action: utter_inform_generation
   - action: action_product_description
   - action: utter_finish_process
+  - intent: thanking
+  - action: submit_review_form
 
 
 - story: happy path
@@ -25,6 +25,8 @@ stories:
   - action: action_banking_card_activated
   - intent: mood_great
   - action: utter_happy
+  - intent: thanking
+  - action: submit_review_form
 
 - story: sad path 1
   steps:
@@ -37,6 +39,8 @@ stories:
   - action: utter_did_that_help
   - intent: affirm
   - action: utter_happy
+  - intent: thanking
+  - action: submit_review_form
 
 - story: sad path 2
   steps:
@@ -52,3 +56,5 @@ stories:
   - action: utter_did_that_help
   - intent: deny
   - action: utter_goodbye
+  - intent: thanking
+  - action: submit_review_form
