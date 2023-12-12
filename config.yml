@@ -11,28 +11,45 @@ language: ar
 pipeline:
 # See https://rasa.com/docs/rasa/tuning-your-model for more information.
 - name: WhitespaceTokenizer
-- name: RegexFeaturizer
-- name: LexicalSyntacticFeaturizer
-- name: CountVectorsFeaturizer
-  analyzer: char_wb
-  min_ngram: 2
-  max_ngram: 6
 #   - hidden_layers_sizes: 
 #     text: [256, 128]
+  case_sensitive: True
+- name: "RegexFeaturizer"
+  # Text will be processed with case sensitive as default
+  # use match word boundaries for lookup table
+  "use_word_boundaries": True
+  
+  
+  
+- name: "CountVectorsFeaturizer"
+  # Analyzer to use, either 'word', 'char', or 'char_wb'
+  "analyzer": "word"
+  # Set the lower and upper boundaries for the n-grams
+  "min_ngram": 1
+  "max_ngram": 1
+  # Set the out-of-vocabulary token
+  # "OOV_token": "_oov_"
+  # Whether to use a shared vocab
+  "use_shared_vocab": True
+- name: LexicalSyntacticFeaturizer
+
 - name: rasa_nlu_examples.featurizers.dense.FastTextFeaturizer
   cache_path: vecs/cc.ar.300.bin
      # /vecs/cc.ar.300.bin
+  "case_sensitive": True
+
+
 - name: DIETClassifier
   epochs: 120
-  constrain_similarities: true
+  constrain_similarities: True
 - name: EntitySynonymMapper
 - name: ResponseSelector
   epochs: 60
-  constrain_similarities: true
+  constrain_similarities: True
+
 - name: FallbackClassifier
   threshold: 0.3
   ambiguity_threshold: 0.1
-
 
 # Configuration for Rasa Core.
 # https://rasa.com/docs/rasa/core/policies/

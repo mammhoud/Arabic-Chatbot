@@ -5,6 +5,7 @@ synonymns:
 
 entities:
   - card_number
+  - software
 
 intents:
   - enter_card_number
@@ -20,11 +21,16 @@ intents:
   - mood_great
   - mood_unhappy
   - bot_challenge
-  
+  - thanking
+  - timings
+  - ask_for_software
+  - provide_software_info
+
 responses:
   utter_banking_activate_card:
   - text: "ادخل رقم الكارت."
-
+  utter_ask_for_software:
+  - text: "ما هو البرنامج الذي تريد معرفة المزيد عنه?"
   utter_banking_card_activated:
   - text: "تم التفعيل"
 
@@ -79,19 +85,20 @@ responses:
   - text: "What do you like or dislike about our chatbot?"
   utter_submit_feedback:
   - text: "Your feedback has been successfully submitted."
+
 actions:
-- action_banking_card_activated
-# - action_exchange_rate
-- submit_review_form 
-- utter_greet
-- utter_goodbye
-- utter_iamabot
-- utter_response_product_description
-- utter_inform_generation
-- action_product_description
-- utter_finish_process
-- utter_re_ask_help
-- utter_change_mood_happy
+  - action_banking_card_activated
+  - action_provide_software_info
+  - submit_review_form 
+  - utter_greet
+  - utter_goodbye
+  - utter_iamabot
+  - utter_response_product_description
+  - utter_inform_generation
+  - action_product_description
+  - utter_finish_process
+  - utter_re_ask_help
+  - utter_change_mood_happy
 
 
 session_config:

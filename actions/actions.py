@@ -11,7 +11,6 @@ from rasa_sdk.executor import CollectingDispatcher
 import requests
 from rasa_sdk.events import SlotSet
 from rasa_sdk.forms import FormValidationAction
-from rasa.core.services import EventStore
 
 # async def get_previous_user_message(self, sender_id: str) -> str:
 #     previous_messages = await self.event_store.get_events(
