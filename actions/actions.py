@@ -1,11 +1,6 @@
 # This files contains your custom actions which can be used to run
 # custom Python code.
-#
-# See this guide on how to implement these action:
 # https://rasa.com/docs/rasa/custom-actions
-
-
-# This is a simple example for a custom action which utters "Hello World!"
 
 import json
 import re
@@ -16,7 +11,16 @@ from rasa_sdk.executor import CollectingDispatcher
 import requests
 from rasa_sdk.events import SlotSet
 from rasa_sdk.forms import FormValidationAction
+from rasa.core.services import EventStore
 
+async def get_previous_user_message(self, sender_id: str) -> str:
+    previous_messages = await self.event_store.get_events(
+        "user", sender_id, event_type="user"
+    )
+    if previous_messages:
+        return previous_messages[-1].get("text")
+
+    return None
 class SubmitReviewForm(FormValidationAction):
     def name(self) -> str:
         return "submit_review_form"
@@ -50,6 +54,27 @@ class ActionBankingCardActivated(Action):
         return []
 
 
+class ValidateReviewForm(FormValidationAction):
+    def name(self):
+        return "validate_review_form"
+
+    async def run(self, dispatcher, tracker, domain):
+        if tracker.get_slot("rating") == "low":
+            return {"rating": 1}
+        elif tracker.get_slot("rating") == "medium":
+            return {"rating": 3}
+        elif tracker.get_slot("rating") == "high":
+            return {"rating": 5}
+
+class SubmitReviewForm(Action):
+    def name(self):
+        return "submit_review_form"
+
+    async def run(self, dispatcher, tracker, domain):
+        # Here you can implement your logic to save the form data
+        # For example, you can call an API or save the data in a database
+        dispatcher.utter_message(text="Thank you for your review!")
+        return []
 # class SendMessageToTelegramUser(Action):
 
     # def name(self):
