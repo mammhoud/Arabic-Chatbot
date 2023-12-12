@@ -13,29 +13,29 @@ from rasa_sdk.events import SlotSet
 from rasa_sdk.forms import FormValidationAction
 from rasa.core.services import EventStore
 
-async def get_previous_user_message(self, sender_id: str) -> str:
-    previous_messages = await self.event_store.get_events(
-        "user", sender_id, event_type="user"
-    )
-    if previous_messages:
-        return previous_messages[-1].get("text")
+# async def get_previous_user_message(self, sender_id: str) -> str:
+#     previous_messages = await self.event_store.get_events(
+#         "user", sender_id, event_type="user"
+#     )
+#     if previous_messages:
+#         return previous_messages[-1].get("text")
 
-    return None
-class SubmitReviewForm(FormValidationAction):
-    def name(self) -> str:
-        return "submit_review_form"
+#     return None
+# class SubmitReviewForm(FormValidationAction):
+#     def name(self) -> str:
+#         return "submit_review_form"
 
-    async def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: "DomainDict") -> list:
-        name = tracker.get_slot("name")
-        rating = tracker.get_slot("rating")
-        review = tracker.get_slot("review")
+#     async def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: "DomainDict") -> list:
+#         name = tracker.get_slot("name")
+#         rating = tracker.get_slot("rating")
+#         review = tracker.get_slot("review")
 
-        if name is not None and rating is not None and review is not None:
-            review_text = f"Name: {name}, Rating: {rating}, Review: {review}"
-            return [SlotSet("name", None), SlotSet("rating", None), SlotSet("review", None), SlotSet("user_reviews", review_text)]
-        else:
-            dispatcher.utter_message(text="عفوا لوجود بعض الاخطاء الان يمكنك ارسال رايك فى اي وقت و سيتم التجاوب معك منا!.")
-            return []
+#         if name is not None and rating is not None and review is not None:
+#             review_text = f"Name: {name}, Rating: {rating}, Review: {review}"
+#             return [SlotSet("name", None), SlotSet("rating", None), SlotSet("review", None), SlotSet("user_reviews", review_text)]
+#         else:
+#             dispatcher.utter_message(text="عفوا لوجود بعض الاخطاء الان يمكنك ارسال رايك فى اي وقت و سيتم التجاوب معك منا!.")
+#             return []
 
 
 class ActionBankingCardActivated(Action):

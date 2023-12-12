@@ -20,13 +20,7 @@ intents:
   - mood_great
   - mood_unhappy
   - bot_challenge
-forms:
-  - submit_review_form
-
-slots:
- user_reviews:
-    type: list
-    influence_conversation: false
+  
 responses:
   utter_banking_activate_card:
   - text: "ادخل رقم الكارت."
@@ -60,7 +54,7 @@ responses:
 
   utter_change_mood_happy:
   - text: "عذرا انا برنامج خاص لمساعدتك يمكنك ترك رسالتك و سيتم الرد عليك!"
-    - text: "نبذة عن الخدمات التى يمكننا تقديمها"
+  - text: "نبذة عن الخدمات التى يمكننا تقديمها"
 
     buttons:
     - title: "برامج خاصة"
@@ -81,7 +75,10 @@ responses:
 
   utter_iamabot:
   - text: "انا مساعد اسطناعى. كيف يمكننى مساعدتك. اترك رسالتك و سيتم مراجعته."
-
+  utter_ask_feedback_text:
+  - text: "What do you like or dislike about our chatbot?"
+  utter_submit_feedback:
+  - text: "Your feedback has been successfully submitted."
 actions:
 - action_banking_card_activated
 # - action_exchange_rate

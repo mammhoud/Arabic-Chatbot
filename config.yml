@@ -3,46 +3,46 @@
 recipe: default.v1
 
 
-assistant_id: null
+assistant_id: 20231212-112807-mute-firmware
 # Configuration for Rasa NLU.
 # https://rasa.com/docs/rasa/nlu/components/
 language: ar
 
 pipeline:
 # See https://rasa.com/docs/rasa/tuning-your-model for more information.
-   - name: WhitespaceTokenizer
-   - name: RegexFeaturizer
-   - name: LexicalSyntacticFeaturizer
-   - name: CountVectorsFeaturizer
-     analyzer: char_wb
-     min_ngram: 2
-     max_ngram: 6
+- name: WhitespaceTokenizer
+- name: RegexFeaturizer
+- name: LexicalSyntacticFeaturizer
+- name: CountVectorsFeaturizer
+  analyzer: char_wb
+  min_ngram: 2
+  max_ngram: 6
 #   - hidden_layers_sizes: 
 #     text: [256, 128]
-   - name: rasa_nlu_examples.featurizers.dense.FastTextFeaturizer
-     cache_path: vecs/cc.ar.300.bin
+- name: rasa_nlu_examples.featurizers.dense.FastTextFeaturizer
+  cache_path: vecs/cc.ar.300.bin
      # /vecs/cc.ar.300.bin
-   - name: DIETClassifier
-     epochs: 120
-     constrain_similarities: true
-   - name: EntitySynonymMapper
-   - name: ResponseSelector
-     epochs: 60
-     constrain_similarities: true
-   - name: FallbackClassifier
-     threshold: 0.3
-     ambiguity_threshold: 0.1
+- name: DIETClassifier
+  epochs: 120
+  constrain_similarities: true
+- name: EntitySynonymMapper
+- name: ResponseSelector
+  epochs: 60
+  constrain_similarities: true
+- name: FallbackClassifier
+  threshold: 0.3
+  ambiguity_threshold: 0.1
 
-    
+
 # Configuration for Rasa Core.
 # https://rasa.com/docs/rasa/core/policies/
 policies:
-  - name: MemoizationPolicy
-  - name: TEDPolicy
-    max_history: 9
-    epochs: 40
-  - name: RulePolicy
-  - name: RulePolicy
-    nlu_threshold: 0.4
-    core_threshold: 0.4
-    fallback_action_name: 'action_default_fallback'
+- name: MemoizationPolicy
+- name: TEDPolicy
+  max_history: 9
+  epochs: 40
+- name: RulePolicy
+- name: RulePolicy
+  nlu_threshold: 0.4
+  core_threshold: 0.4
+  fallback_action_name: 'action_default_fallback'
