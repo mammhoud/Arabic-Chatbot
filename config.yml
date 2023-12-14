@@ -72,7 +72,7 @@ pipeline:
 #     core_threshold: 0.6
 #     fallback_action_name: 'action_default_fallback'
 - name: SpacyNLP
-  model: en_core_web_md
+  model: en_core_web_trf
 - name: SpacyTokenizer
 - name: RegexFeaturizer
   case_sensitive: false

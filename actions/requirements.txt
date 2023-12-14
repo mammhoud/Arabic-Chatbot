@@ -1,5 +1,4 @@
 pycocotools 
-rasa[spacy]
-websockets==10
 detectlanguage
+fuzzywuzzy
 
