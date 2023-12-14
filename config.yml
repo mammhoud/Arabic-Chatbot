@@ -6,60 +6,146 @@ recipe: default.v1
 assistant_id: 20231212-112807-mute-firmware
 # Configuration for Rasa NLU.
 # https://rasa.com/docs/rasa/nlu/components/
-language: ar
+language: en
 
 pipeline:
 # See https://rasa.com/docs/rasa/tuning-your-model for more information.
-- name: WhitespaceTokenizer
-#   - hidden_layers_sizes: 
-#     text: [256, 128]
-  case_sensitive: True
-- name: "RegexFeaturizer"
-  # Text will be processed with case sensitive as default
-  # use match word boundaries for lookup table
-  "use_word_boundaries": True
+# - name: WhitespaceTokenizer
+# #   - hidden_layers_sizes: 
+# #     text: [256, 128]
+# - name: "RegexFeaturizer"
+#   # Text will be processed with case sensitive as default
+#   # use match word boundaries for lookup table
+#   "use_word_boundaries": True
+#   - name: WhitespaceTokenizer
+#   - name: LexicalSyntacticFeaturizer
+#   - name: CountVectorsFeaturizer
+#     analyzer: char_wb
+#     min_ngram: 1
+#     max_ngram: 4
+#   - name: rasa_nlu_examples.featurizers.dense.BytePairFeaturizer
+#     lang: ar
+#     vs: 1000
+#     dim: 25
+#   - name: DIETClassifier
+#     epochs: 100
   
   
-  
-- name: "CountVectorsFeaturizer"
-  # Analyzer to use, either 'word', 'char', or 'char_wb'
-  "analyzer": "word"
-  # Set the lower and upper boundaries for the n-grams
-  "min_ngram": 1
-  "max_ngram": 1
-  # Set the out-of-vocabulary token
-  # "OOV_token": "_oov_"
-  # Whether to use a shared vocab
-  "use_shared_vocab": True
-- name: LexicalSyntacticFeaturizer
+# - name: CountVectorsFeaturizer
+#   token_pattern: (?u)\b\w+\b
+#   Set the out-of-vocabulary token
+#   "OOV_token": "_oov_"
+#   Whether to use a shared vocab
+#   "use_shared_vocab": True
 
-- name: rasa_nlu_examples.featurizers.dense.FastTextFeaturizer
-  cache_path: vecs/cc.ar.300.bin
-     # /vecs/cc.ar.300.bin
-  "case_sensitive": True
+# - name: LexicalSyntacticFeaturizer
+
+# - name: rasa_nlu_examples.featurizers.dense.FastTextFeaturizer
+#   cache_path: vecs/cc.ar.300.bin
+#      /vecs/cc.ar.300.bin
+#   "case_sensitive": True
 
 
-- name: DIETClassifier
-  epochs: 120
-  constrain_similarities: True
-- name: EntitySynonymMapper
-- name: ResponseSelector
-  epochs: 60
-  constrain_similarities: True
+#   - name: DIETClassifier
+#     epochs: 120
+#     constrain_similarities: True
+#     run_eagerly: True
 
-- name: FallbackClassifier
-  threshold: 0.3
-  ambiguity_threshold: 0.1
+#   - name: EntitySynonymMapper
+#   - name: ResponseSelector
+#     epochs: 60
+#     constrain_similarities: True
+
+#   - name: FallbackClassifier
+#     threshold: 0.3
+#     ambiguity_threshold: 0.1
 
 # Configuration for Rasa Core.
 # https://rasa.com/docs/rasa/core/policies/
+# policies:
+#   - name: AugmentedMemoizationPolicy
+#   - name: TEDPolicy
+#     max_history: 9
+#     epochs: 40
+#   - name: RulePolicy
+#     nlu_threshold: 0.7
+#     core_threshold: 0.6
+#     fallback_action_name: 'action_default_fallback'
+- name: SpacyNLP
+  model: en_core_web_md
+- name: SpacyTokenizer
+- name: RegexFeaturizer
+  case_sensitive: false
+- name: LanguageModelFeaturizer
+  model_name: "bert"
+  model_weights: "rasa/LaBSE"
+  cache_dir: ./.cache
+- name: SpacyFeaturizer
+- name: LexicalSyntacticFeaturizer
+- name: CountVectorsFeaturizer
+- name: CountVectorsFeaturizer
+  analyzer: char_wb
+  min_ngram: 1
+  max_ngram: 4
+- name: DIETClassifier
+  epochs: 141
+  loss_type: cross_entropy
+  constrain_similarities: true
+  number_of_transformer_layers: 2
+  number_of_attention_heads: 4
+  batch_size:
+  - 64
+  - 128
+  # evaluate_on_number_of_examples: 200
+  # evaluate_every_number_of_epochs: 5
+  # regularization_constant: 0.002
+  random_seed: 1
+  tensorboard_log_directory: ./.tensorboard/DIET
+  tensorboard_log_level: epoch
+  checkpoint_model: True
+- name: RegexEntityExtractor
+  case_sensitive: false
+  use_lookup_tables: true
+- name: EntitySynonymMapper
+- name: ResponseSelector
+  epochs: 26
+  loss_type: cross_entropy
+  constrain_similarities: true
+  regularization_constant: 0.002
+  random_seed: 1
+  batch_size:
+  - 64
+  - 128
+  # evaluate_on_number_of_examples: 5
+  # evaluate_every_number_of_epochs: 1
+  # tensorboard_log_directory: ./.tensorboard/DIET2BOW
+  # tensorboard_log_level: epoch
+  checkpoint_model: True
+- name: FallbackClassifier
+  threshold: 0.1
+  ambiguity_threshold: 0.05
+
 policies:
-- name: MemoizationPolicy
+- name: AugmentedMemoizationPolicy
+  max_history: 8
 - name: TEDPolicy
-  max_history: 9
-  epochs: 40
+  max_history: 8
+  epochs: 41
+  loss_type: cross_entropy
+  constrain_similarities: true
+  regularization_constant: 0.002
+  random_seed: 1
+  batch_size:
+  - 64
+  - 128
+  # evaluate_on_number_of_examples: 200
+  # evaluate_every_number_of_epochs: 5
+  # tensorboard_log_directory: ./.tensorboard/TED
+  # tensorboard_log_level: epoch
+  checkpoint_model: True
 - name: RulePolicy
-- name: RulePolicy
-  nlu_threshold: 0.4
-  core_threshold: 0.4
-  fallback_action_name: 'action_default_fallback'
+  core_fallback_threshold: 0.1
+  core_fallback_action_name: action_default_fallback
+  enable_fallback_prediction: true
+  restrict_rules: true
+  check_for_contradictions: true

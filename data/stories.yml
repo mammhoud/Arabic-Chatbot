@@ -11,7 +11,9 @@ stories:
   - action: utter_inform_generation
   - action: action_product_description
   - action: utter_finish_process
-  - intent: thanking 
+  - intent: thanking
+  - action: submit_review_form
+
 
 - story: happy path
   steps:
@@ -24,7 +26,7 @@ stories:
   - intent: mood_great
   - action: utter_happy
   - intent: thanking
-  # - action: submit_review_form
+  - action: submit_review_form
 
 - story: sad path 1
   steps:
@@ -38,7 +40,7 @@ stories:
   - intent: affirm
   - action: utter_happy
   - intent: thanking
-  # - action: submit_review_form
+  - action: submit_review_form
 
 - story: sad path 2
   steps:
@@ -55,20 +57,4 @@ stories:
   - intent: deny
   - action: utter_goodbye
   - intent: thanking
-  # - action: submit_review_form
-  
-- story: user asks for software info
-  steps:
-  - intent: ask_for_software
-    entities:
-    - software: "Microsoft Teams"
-  - action: action_provide_software_info
-
-- story: bot asks for software name
-  steps:
-  - intent: provide_software_info
-  - action: utter_ask_for_software
-  - intent: ask_for_software
-    entities:
-    - software: "Zoom"
-  - action: action_provide_software_info
+  - action: submit_review_form
