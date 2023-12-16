@@ -1,0 +1,87 @@
+version: '3.1'
+synonymns:
+- credit
+entities:
+- card_number
+- software
+intents:
+- affirm
+- ask_for_software
+- banking_activate_card
+- banking_fee_inquiry
+- bot_challenge
+- connect_live_agent
+- deny
+- enter_card_number
+- exchange_rate
+- goodbye
+- greet
+- mood_great
+- mood_unhappy
+- product_keywords
+- provide_software_info
+- thanking
+- timings
+responses:
+  utter_banking_activate_card:
+  - text: ادخل رقم الكارت.
+  utter_ask_for_software:
+  - text: ما هو البرنامج الذي تريد معرفة المزيد عنه?
+  utter_banking_card_activated:
+  - text: تم التفعيل
+  utter_banking_fee_inquiry:
+  - text: 'المصروفات المتاحة:'
+  utter_greet:
+  - text: مرحبا كيف حالك؟
+  utter_cheer_up:
+  - text: مرحبا بك
+    image: https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZnpsd3pidzlmdWdscGI2anh3bWo5bDFlbmJmMXBibDJyZ2p6MTVjdyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/iDOOSqoC0k3VeT9rd5/giphy.gif
+  utter_did_that_help:
+  - text: هل يمكننى مساعدتك فى شئ اخر ؟
+  utter_response_product_description:
+  - text: ما هى الخدمة التى تريد الاستعلام عنها ؟
+    buttons:
+    - title: برامج خاصة
+      payload: Applications
+    - title: تسويق
+      payload: Marketing
+  utter_re_ask_help:
+  - text: حينما تريد مشراكتنا يمكنك ارسال رسالة و سيتم مراجعتها و! الرد من خلالنا او من خلال نظام الرد الالى
+  utter_change_mood_happy:
+  - text: عذرا انا برنامج خاص لمساعدتك يمكنك ترك رسالتك و سيتم الرد عليك!
+  - text: نبذة عن الخدمات التى يمكننا تقديمها
+    buttons:
+    - title: برامج خاصة
+      payload: Applications
+    - title: تسويق
+      payload: Marketing
+  utter_inform_generation:
+  - text: الان يمكنك التواصل معنا على رقمنا(١٢٣٤٥٦٧٨). لابلاغك بحالة اششتراكك او فيما سبق من استفسارك
+  utter_finish_process:
+  - text: سعداء بكم
+  utter_happy:
+  - text: عظيم. تفضل
+  utter_goodbye:
+  - text: نتمنى لكم النجاح و التميز
+  utter_iamabot:
+  - text: انا مساعد اسطناعى. كيف يمكننى مساعدتك. اترك رسالتك و سيتم مراجعته.
+  utter_ask_feedback_text:
+  - text: What do you like or dislike about our chatbot?
+  utter_submit_feedback:
+  - text: Your feedback has been successfully submitted.
+actions:
+- action_banking_card_activated
+- action_provide_software_info
+- submit_review_form
+- utter_greet
+- utter_goodbye
+- utter_iamabot
+- utter_response_product_description
+- utter_inform_generation
+- action_product_description
+- utter_finish_process
+- utter_re_ask_help
+- utter_change_mood_happy
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

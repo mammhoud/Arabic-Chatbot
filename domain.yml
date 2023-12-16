@@ -1,19 +1,6 @@
 version: "3.1"
 
-synonymns:
-  - credit
-
-entities:
-  - card_number
-  - software
-
 intents:
-  - enter_card_number
-  - banking_activate_card
-  - banking_fee_inquiry
-  - exchange_rate
-  - product_keywords
-  - connect_live_agent
   - greet
   - goodbye
   - affirm
@@ -23,84 +10,128 @@ intents:
   - bot_challenge
   - thanking
   - timings
-  - ask_for_software
-  - provide_software_info
+
+entities: 
+  - topic
+  - language
+  - username
+  - user_phone
+  - name
+  - is_customer
+  - user_data
+
+slots:
+  username:
+    type: text
+    initial_value: "user"
+    mappings:
+    - type: from_entity
+      entity: username
+  user_phone:
+    type: text
+    initial_value: "0000000000"
+    mappings:
+    - type: from_entity
+      entity: user_phone
+  user_data:
+    type: json
+    influence_conversation: False
+    mappings:
+    - type: from_entity
+      entity: user_data
+  logged_in:
+    type: bool
+    influence_conversation: False
+    mappings:
+    - type: custom
+  name:
+    type: text
+    influence_conversation: False
+    mappings:
+    - type: custom
+  is_customer:
+    type: bool
+    initial_value: false
+    mappings:
+    - type: from_entity
+      entity: is_customer
+  num_fallbacks:
+    type: float
+    initial_value: 0
+    mappings:
+    - type: custom
+  lang:
+    type: text
+    initial_value: "ar"
+    mappings:
+    - type: from_entity
+      entity: language
+  topic: 
+    type: text
+    mappings:
+    - type: from_entity
+      entity: topic 
 
 responses:
-  utter_banking_activate_card:
-  - text: "ادخل رقم الكارت."
-  utter_ask_for_software:
-  - text: "ما هو البرنامج الذي تريد معرفة المزيد عنه?"
-  utter_banking_card_activated:
-  - text: "تم التفعيل"
 
-  utter_banking_fee_inquiry:
-  - text: "المصروفات المتاحة:"
-  
   utter_greet:
+  - condition:
+        - type: slot
+          name: logged_in
+          value: true
+      text: "Hey, {name}. Nice to see you again on Slack! How are you?"
+      channel: slack
   - text: "مرحبا كيف حالك؟"
+  - text: "hello how are you"
+  - text: "hello thats nice day"
+  - text: "hello thanks for you message"
+
 
   utter_cheer_up:
-  - text: "مرحبا بك"
+  - text: "we are here for help"
     image: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZnpsd3pidzlmdWdscGI2anh3bWo5bDFlbmJmMXBibDJyZ2p6MTVjdyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/iDOOSqoC0k3VeT9rd5/giphy.gif"
 
   utter_did_that_help:
   - text: "هل يمكننى مساعدتك فى شئ اخر ؟"
+  - text: "i can help you, what are you need also."
   
-  utter_response_product_description:
-  - text: "ما هى الخدمة التى تريد الاستعلام عنها ؟"
-    buttons:
-    - title: "برامج خاصة"
-      payload: "Applications"
-    - title: "تسويق"
-      payload: "Marketing"
-
   utter_re_ask_help:
     - text: "حينما تريد مشراكتنا يمكنك ارسال رسالة و سيتم مراجعتها و! الرد من خلالنا او من خلال نظام الرد الالى"
+    - text: "when you need to ask for help or using our services we here to help"
 
-  utter_change_mood_happy:
+  utter_session_definition:
   - text: "عذرا انا برنامج خاص لمساعدتك يمكنك ترك رسالتك و سيتم الرد عليك!"
-  - text: "نبذة عن الخدمات التى يمكننا تقديمها"
+  - text: "sorry that chat have some limetations that still in development"
 
-    buttons:
-    - title: "برامج خاصة"
-      payload: "Applications"
-    - title: "تسويق"
-      payload: "Marketing"
-
-  utter_inform_generation:
+  utter_inform_contact:
   - text: "الان يمكنك التواصل معنا على رقمنا(١٢٣٤٥٦٧٨). لابلاغك بحالة اششتراكك او فيما سبق من استفسارك"
+  - text: "you can contact with us using the hot line"
 
-  utter_finish_process:
-  - text: "سعداء بكم"
   utter_happy:
   - text: "عظيم. تفضل"
+  - text: "thanks, follow up"
 
   utter_goodbye:
   - text: "نتمنى لكم النجاح و التميز"
+  - text: "we hope that you are doing well"
 
-  utter_iamabot:
-  - text: "انا مساعد اسطناعى. كيف يمكننى مساعدتك. اترك رسالتك و سيتم مراجعته."
+  utter_bot_texting:
+  - text: "انا مساعد اصطناعى. كيف يمكننى مساعدتك. اترك رسالتك و سيتم مراجعته."
+  - text: "leave your message"
   utter_ask_feedback_text:
   - text: "What do you like or dislike about our chatbot?"
   utter_submit_feedback:
   - text: "Your feedback has been successfully submitted."
 
 actions:
-  - action_banking_card_activated
-  - action_provide_software_info
-  - submit_review_form 
   - utter_greet
   - utter_goodbye
-  - utter_iamabot
-  - utter_response_product_description
-  - utter_inform_generation
-  - action_product_description
-  - utter_finish_process
+  - utter_bot_texting
+  - utter_inform_contact
   - utter_re_ask_help
-  - utter_change_mood_happy
+  - utter_session_definition
 
 
 session_config:
-  session_expiration_time: 60
-  carry_over_slots_to_new_session: true
+  session_expiration_time: 90
+  carry_over_slots_to_new_session: false

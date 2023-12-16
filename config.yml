@@ -72,7 +72,7 @@ pipeline:
 #     core_threshold: 0.6
 #     fallback_action_name: 'action_default_fallback'
 - name: SpacyNLP
-  model: en_core_web_trf
+  model: en_core_web_md
 - name: SpacyTokenizer
 - name: RegexFeaturizer
   case_sensitive: false
@@ -91,14 +91,14 @@ pipeline:
   epochs: 141
   loss_type: cross_entropy
   constrain_similarities: true
-  number_of_transformer_layers: 2
-  number_of_attention_heads: 4
+  number_of_transformer_layers: 4
+  number_of_attention_heads: 5
   batch_size:
   - 64
   - 128
-  # evaluate_on_number_of_examples: 200
-  # evaluate_every_number_of_epochs: 5
-  # regularization_constant: 0.002
+  evaluate_on_number_of_examples: 200
+  evaluate_every_number_of_epochs: 5
+  regularization_constant: 0.002
   random_seed: 1
   tensorboard_log_directory: ./.tensorboard/DIET
   tensorboard_log_level: epoch

@@ -1,60 +1,50 @@
 version: "3.1"
 
 stories:
-- story: mood unhappy for generating Services description
+- story: simple Sessions
   steps:
   - intent: greet
   - action: utter_greet
-  - intent: mood_unhappy
-  - action: utter_change_mood_happy
+  # - intent: mood_unhappy
+  - action: utter_session_definition
   - intent: affirm
-  - action: utter_inform_generation
-  - action: action_product_description
-  - action: utter_finish_process
+  - action: utter_inform_contact
   - intent: thanking
-  - action: submit_review_form
 
 
-- story: happy path
+- story: Choices Sessions
   steps:
   - intent: greet
   - action: utter_greet
-  - intent: banking_activate_card
-  - action: utter_banking_activate_card
-  - intent: enter_card_number
-  - action: action_banking_card_activated
   - intent: mood_great
   - action: utter_happy
   - intent: thanking
-  - action: submit_review_form
 
-- story: sad path 1
+- story: Inquery
   steps:
   - intent: greet
-  - action: utter_greet
-  - intent: mood_unhappy
-  - intent: banking_fee_inquiry
-  - action: utter_banking_fee_inquiry
-  - action: utter_cheer_up
-  - action: utter_did_that_help
   - intent: affirm
   - action: utter_happy
   - intent: thanking
-  - action: submit_review_form
+  - action: utter_cheer_up
 
-- story: sad path 2
+- story: Customer Relations 
+  steps:
+  - intent: greet
+  - intent: deny
+  - action: utter_goodbye
+  - intent: thanking
+  - action: utter_cheer_up
+
+
+
+- story: Customer Reportes 
   steps:
   - intent: greet
   - action: utter_greet
-  - intent: mood_unhappy
-  - action: utter_cheer_up
-  - intent: banking_activate_card
-  - action: utter_banking_activate_card
-  - intent: enter_card_number
-  - action: action_banking_card_activated
-  - action: utter_cheer_up
+  # - intent: mood_unhappy
   - action: utter_did_that_help
   - intent: deny
   - action: utter_goodbye
   - intent: thanking
-  - action: submit_review_form
+  - action: utter_cheer_up

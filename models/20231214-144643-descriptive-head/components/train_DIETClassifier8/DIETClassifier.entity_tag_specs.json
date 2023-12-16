@@ -1,0 +1,28 @@
+[
+  {
+    "tag_name": "entity",
+    "ids_to_tags": {
+      "1": "B-LOC",
+      "2": "I-LOC",
+      "3": "L-LOC",
+      "4": "U-LOC",
+      "5": "B-card_number",
+      "6": "I-card_number",
+      "7": "L-card_number",
+      "8": "U-card_number",
+      "0": "O"
+    },
+    "tags_to_ids": {
+      "B-LOC": 1,
+      "I-LOC": 2,
+      "L-LOC": 3,
+      "U-LOC": 4,
+      "B-card_number": 5,
+      "I-card_number": 6,
+      "L-card_number": 7,
+      "U-card_number": 8,
+      "O": 0
+    },
+    "num_tags": 9
+  }
+]
