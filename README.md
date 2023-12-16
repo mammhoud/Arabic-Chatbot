@@ -65,11 +65,9 @@ rasa project works with telegram, to know more about its [API](https://medium.co
 
 ## Examples
 ### - English
-#### - [customer-care-chatbot](https://github.com/Horizon733/customer-care-chatbot)
-#### -
-## Arabic
-#### - 
-#### -
+### - Arabic
+### - Multi-lang Translator API
+
 
 ## 🧪 Testing
 - Train bot
@@ -93,19 +91,12 @@ rasa run actions -p {PORT}[Optional]
 ![image](https://github.com/mammhoud/Arabic-Chatbot/assets/98676093/8054590b-cad1-4db0-a93b-1b4078fcdfdd)
 
 ## 🛠 Features {Changable}
-- [ ] Basic E-commerce FAQ
+- [x] Basic
 - [x] Basic chitchats
-- [ ] Out of Scope
-- [ ] Contact us form
+- [x] Out of Scope
+- [x] Contact us form
 - [x] Send Emails
 
 ### Tutorial links:
 - [Build customer care chatbot from scratch](https://youtu.be/u6xOgR3jEMU)
 - [Send email from Rasa chatbot](https://youtu.be/UcbNmZA65pw)
-#### []()
-#### []()
-#### []()
-#### []()
-#### []()
-#### []()
-#### []()
