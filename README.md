@@ -1,6 +1,10 @@
 ## Arabic-Chatbot
 
 ### make Project ready
+
+first - 
+''' pip install -r requirements.txt '''
+
 to Change runnin project to use arabic anly download fast-text Arabic models: [Arabic](https://dl.fbaipublicfiles.com/fasttext/vectors-crawl/cc.ar.300.bin.gz), [Arabic Egypt](https://dl.fbaipublicfiles.com/fasttext/vectors-crawl/cc.arz.300.bin.gz) into vecs folder with exract the archive of downloaded gz file
 create vecs folder in dosen`t created, if you cant chang the config file you should take a look on the recources that i was added it 
 note that you could change fast-text model with models into fast-text or another that defined in reading list, so check config.yml 
