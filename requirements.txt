@@ -1,6 +1,6 @@
 aiohttp==3.9.0
-rasa
-rasa-sdk
+rasa~=3.6.0
+rasa-sdk~=3.6.0
 -e git+https://github.com/mammhoud/rasa-nlu-examples.git@37c4d29f379beb26b16bfad582a5736147dfeb14#egg=rasa_nlu_examples
 spacy
 spacy-curated-transformers

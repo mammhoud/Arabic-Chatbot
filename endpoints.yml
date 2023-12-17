@@ -18,7 +18,9 @@ action_endpoint:
 # https://rasa.com/docs/rasa/tracker-stores
 tracker_store:
   type: utils.tracker_store.CustomTrackerStore  # replace with the actual module path
-  url: sqlite:///my_database.db  # replace with your actual database URL
+  dialect: "sqlite"  # the dialect used to interact with the db
+  url: sqlite  # replace with your actual database URL
+  db: "rasa.db"  # path to your db
 #tracker_store:
 #    type: redis
 #    url: <host of the redis instance, e.g. localhost>

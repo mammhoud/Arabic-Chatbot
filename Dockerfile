@@ -7,7 +7,7 @@ RUN apt-get update -qq \
 RUN . /opt/venv/bin/activate 
 RUN pip install --upgrade pip
 RUN pip install --no-cache-dir fasttext
-RUN pip install --no-cache-dir git+https://github.com/RasaHQ/rasa-nlu-examples
+RUN pip install --no-cache-dir git+https://github.com/mammhoud/rasa-nlu-examples
 RUN mkdir /vecs
-ADD vecs/cc.ar.300.bin /vecs/cc.ar.300.bin
+#ADD vecs/cc.ar.300.bin /vecs/cc.ar.300.bin
 RUN chmod -R a+rxw /vecs
